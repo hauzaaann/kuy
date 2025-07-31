@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starts</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e1f29, #14151c);
+      color: #fff;
+      overflow: hidden;
+    }
+    .start-box {
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+    .start-box h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+    .start-btn {
+      padding: 15px 50px;
+      font-size: 1.5rem;
+      color: #fff;
+      background: #ff006e;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #ff006e80;
+    }
+    .start-btn:hover {
+      background: #ff4a8b;
+      box-shadow: 0 0 30px #ff4a8b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="start-box">
+    <h1>Welcome to STARTS</h1>
+    <button class="start-btn" id="startBtn">START</button>
+  </div>
+
+  <!-- ganti 'lagu.mp3' dengan file lagu lo -->
+  <audio id="bgMusic" src="AUD-20250423-WA0012.mp3"></audio>
+
+  <script>
+    const btn = document.getElementById('startBtn');
+    const music = document.getElementById('bgMusic');
+
+    btn.addEventListener('click', () => {
+      music.volume = 1.0; // volume full
+      music.play().catch(e => console.log(e)); // handle error kalau ada
+      btn.innerText = "Enjoy!";
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>
